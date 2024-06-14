@@ -421,7 +421,7 @@ function loadExample(example) {
             ];
             break;
             case "sixteenth-eighth-sixteenth-triplet":
-                timeSignature = "4/4"; e
+                timeSignature = "4/4";
                 notesArray = [
                     { keys: ["c/4"], duration: "16" },
                     { keys: ["d/4"], duration: "8" },
