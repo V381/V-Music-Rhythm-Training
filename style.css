@@ -1,0 +1,149 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+#sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    left: -250px;
+    top: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+#sidebar ul {
+    padding: 0;
+    list-style: none;
+}
+
+#sidebar ul li {
+    padding: 8px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#sidebar ul li:hover,
+#sidebar ul li.active {
+    background-color: darkred;
+}
+
+#close-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 36px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#open-btn {
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+#content {
+    margin-left: 60px;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+button {
+    background-color: #111;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+#notation {
+    margin-top: 20px;
+}
+
+#explanation, #detailed-explanation {
+    margin-top: 10px;
+}
+
+#play, #stop, #next, #triplet {
+    display: none;
+}
+
+#sidebar ul li.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+#sidebar ul li.enabled {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+@media screen and (max-width: 900px) {
+    body {
+      font-size: 10px;
+    }
+    #sidebar {
+        width: 150px;
+    }
+  }
+
+.basics {
+    color: red;
+    text-align: center;
+}
+
+.basics:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+.arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.arrow.down {
+    transform: rotate(90deg);
+}
+
+.headline {
+    color: white;
+    text-align: center;
+    font-size: 16px;
+}
+
+.headline > span {
+    color: red;
+}
