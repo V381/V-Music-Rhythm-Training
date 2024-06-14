@@ -45,15 +45,20 @@ updateExplanation();
 const detailedExplanationDiv = document.getElementById("detailed-explanation");
 detailedExplanationDiv.innerHTML = `
     <p><strong>4/4 Time Signature:</strong> This means there are 4 beats in each measure and a quarter note gets one beat.</p>
-    <p><strong>Treble Clef:</strong> This symbol indicates the pitch of written notes. It is used for higher-pitched instruments and voices.</p>
-    <p><strong>Whole Note:</strong> A whole note lasts for 4 beats in a 4/4 measure.</p>
-    <p><strong>Half Note:</strong> A half note lasts for 2 beats in a 4/4 measure.</p>
-    <p><strong>Quarter Note:</strong> A quarter note lasts for 1 beat in a 4/4 measure.</p>
-    <p><strong>Eighth Note:</strong> An eighth note lasts for half a beat in a 4/4 measure.</p>
-    <p><strong>Dotted Note:</strong> A dotted note increases the duration of the note by half of its original value.</p>
     <p><strong>2/4 Time Signature:</strong> This means there are 2 beats in each measure and a quarter note gets one beat.</p>
     <p><strong>3/4 Time Signature:</strong> This means there are 3 beats in each measure and a quarter note gets one beat.</p>
     <p><strong>7/8 Time Signature:</strong> This means there are 7 beats in each measure and an eighth note gets one beat.</p>
+    <p><strong>Treble Clef:</strong> This symbol indicates the pitch of written notes. It is used for higher-pitched instruments and voices. The curl of the clef circles around the G line on the staff.</p>
+    <p><strong>Bass Clef:</strong> This symbol indicates the pitch of written notes. It is used for lower-pitched instruments and voices. The two dots of the clef surround the F line on the staff.</p>
+    <p><strong>Whole Note:</strong> A whole note lasts for 4 beats in a 4/4 measure. It is represented by an open note head without a stem.</p>
+    <p><strong>Half Note:</strong> A half note lasts for 2 beats in a 4/4 measure. It is represented by an open note head with a stem.</p>
+    <p><strong>Quarter Note:</strong> A quarter note lasts for 1 beat in a 4/4 measure. It is represented by a filled-in note head with a stem.</p>
+    <p><strong>Eighth Note:</strong> An eighth note lasts for half a beat in a 4/4 measure. It is represented by a filled-in note head with a stem and one flag.</p>
+    <p><strong>Sixteenth Note:</strong> A sixteenth note lasts for a quarter of a beat in a 4/4 measure. It is represented by a filled-in note head with a stem and two flags.</p>
+    <p><strong>Dotted Note:</strong> A dotted note increases the duration of the note by half of its original value. For example, a dotted quarter note lasts for 1.5 beats.</p>
+    <p><strong>Rests:</strong> Rests indicate silences in music. Each rest symbol corresponds to a specific note duration, such as whole rest, half rest, quarter rest, etc.</p>
+    <p><strong>Key Signatures:</strong> Key signatures indicate the key of the piece of music by specifying which notes are sharp or flat throughout the piece.</p>
+    <p><strong>Bar Lines:</strong> The bar lines divide the staff into measures, making it easier to read and follow the music.</p>
 `;
 
 function loadExample(example) {
@@ -449,7 +454,125 @@ function loadExample(example) {
                 const triplet4 = notes.slice(9, 12);
                 beams = [new VF.Beam(triplet1), new VF.Beam(triplet2), new VF.Beam(triplet3), new VF.Beam(triplet4)];
                 break;
-            
+                case "three-two":
+                    timeSignature = "3/2"; 
+                    notesArray = [
+                        { keys: ["c/4"], duration: "h" },
+                        { keys: ["d/4"], duration: "h" },
+                        { keys: ["e/4"], duration: "h" }
+                    ];
+                    explanationsArray = [
+                        "3/2 Time Signature: There are 3 beats in each measure and a half note gets one beat."
+                    ];
+                    break;
+                case "three-eight":
+                    timeSignature = "3/8"; 
+                    notesArray = [
+                        { keys: ["c/4"], duration: "8" },
+                        { keys: ["d/4"], duration: "8" },
+                        { keys: ["e/4"], duration: "8" }
+                    ];
+                    explanationsArray = [
+                        "3/8 Time Signature: There are 3 beats in each measure and an eighth note gets one beat."
+                    ];
+                    break;
+                case "three-sixteenth":
+                    timeSignature = "3/16"; 
+                    notesArray = [
+                        { keys: ["c/4"], duration: "16" },
+                        { keys: ["d/4"], duration: "16" },
+                        { keys: ["e/4"], duration: "16" }
+                    ];
+                    explanationsArray = [
+                        "3/16 Time Signature: There are 3 beats in each measure and a sixteenth note gets one beat."
+                    ];
+                    break;
+                    case "three-two":
+            timeSignature = "3/2"; 
+            notesArray = [
+                { keys: ["c/4"], duration: "h" },
+                { keys: ["d/4"], duration: "h" },
+                { keys: ["e/4"], duration: "h" }
+            ];
+            explanationsArray = [
+                "3/2 Time Signature: There are 3 beats in each measure and a half note gets one beat."
+            ];
+            break;
+        case "three-eight":
+            timeSignature = "3/8"; 
+            notesArray = [
+                { keys: ["c/4"], duration: "8" },
+                { keys: ["d/4"], duration: "8" },
+                { keys: ["e/4"], duration: "8" }
+            ];
+            explanationsArray = [
+                "3/8 Time Signature: There are 3 beats in each measure and an eighth note gets one beat."
+            ];
+            break;
+        case "three-sixteenth":
+            timeSignature = "3/16";
+            notesArray = [
+                { keys: ["c/4"], duration: "16" },
+                { keys: ["d/4"], duration: "16" },
+                { keys: ["e/4"], duration: "16" }
+            ];
+            explanationsArray = [
+                "3/16 Time Signature: There are 3 beats in each measure and a sixteenth note gets one beat."
+            ];
+            break;
+        case "seven-sixteenth":
+            timeSignature = "7/16"; 
+            notesArray = [
+                { keys: ["c/4"], duration: "16" },
+                { keys: ["d/4"], duration: "16" },
+                { keys: ["e/4"], duration: "16" },
+                { keys: ["f/4"], duration: "16" },
+                { keys: ["g/4"], duration: "16" },
+                { keys: ["a/4"], duration: "16" },
+                { keys: ["b/4"], duration: "16" }
+            ];
+            explanationsArray = [
+                "7/16 Time Signature: There are 7 beats in each measure and a sixteenth note gets one beat."
+            ];
+            break;
+        case "eleven-sixteenth":
+            timeSignature = "11/16";
+            notesArray = [
+                { keys: ["c/4"], duration: "16" },
+                { keys: ["d/4"], duration: "16" },
+                { keys: ["e/4"], duration: "16" },
+                { keys: ["f/4"], duration: "16" },
+                { keys: ["g/4"], duration: "16" },
+                { keys: ["a/4"], duration: "16" },
+                { keys: ["b/4"], duration: "16" },
+                { keys: ["c/5"], duration: "16" },
+                { keys: ["d/5"], duration: "16" },
+                { keys: ["e/5"], duration: "16" },
+                { keys: ["f/5"], duration: "16" }
+            ];
+            explanationsArray = [
+                "11/16 Time Signature: There are 11 beats in each measure and a sixteenth note gets one beat."
+            ];
+            break;
+        case "eleven-eight":
+            timeSignature = "11/8"; 
+            notesArray = [
+                { keys: ["c/4"], duration: "8" },
+                { keys: ["d/4"], duration: "8" },
+                { keys: ["e/4"], duration: "8" },
+                { keys: ["f/4"], duration: "8" },
+                { keys: ["g/4"], duration: "8" },
+                { keys: ["a/4"], duration: "8" },
+                { keys: ["b/4"], duration: "8" },
+                { keys: ["c/5"], duration: "8" },
+                { keys: ["d/5"], duration: "8" },
+                { keys: ["e/5"], duration: "8" },
+                { keys: ["f/5"], duration: "8" }
+            ];
+            explanationsArray = [
+                "11/8 Time Signature: There are 11 beats in each measure and an eighth note gets one beat."
+            ];
+            break;
         default:
             break;
     }
