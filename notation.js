@@ -573,6 +573,76 @@ function loadExample(example) {
                 "11/8 Time Signature: There are 11 beats in each measure and an eighth note gets one beat."
             ];
             break;
+        case "blues-shuffle":
+            notesArray = [
+                { keys: ["c/4"], duration: "8d" },
+                { keys: ["e/4"], duration: "16" },
+                { keys: ["g/4"], duration: "8d" },
+                { keys: ["b/4"], duration: "16" },
+                { keys: ["c/5"], duration: "8d" },
+                { keys: ["d/5"], duration: "16" },
+                { keys: ["e/5"], duration: "8d" },
+                { keys: ["f/5"], duration: "16" }
+            ];
+            explanationsArray = [
+                "Blues Shuffle: A shuffle rhythm commonly found in blues music, combining a swung eighth note pattern."
+            ];
+            timeSignature = "4/4"; 
+            notes = notesArray.map(note => new VF.StaveNote({
+                keys: note.keys,
+                duration: note.duration
+            }));
+            beams = [
+                new VF.Beam(notes.slice(0, 2)),
+                new VF.Beam(notes.slice(2, 4)),
+                new VF.Beam(notes.slice(4, 6)),
+                new VF.Beam(notes.slice(6, 8))
+            ];
+            break;
+        case "waltz":
+            timeSignature = "3/4"; 
+            notesArray = [
+                { keys: ["c/4"], duration: "q" },
+                { keys: ["d/4"], duration: "q" },
+                { keys: ["e/4"], duration: "q" }
+            ];
+            explanationsArray = [
+                "Waltz Rhythm: A 3/4 time signature with quarter notes C, D, and E."
+            ];
+            notes = notesArray.map(note => new VF.StaveNote({
+                keys: note.keys,
+                duration: note.duration
+            }));
+            break;
+        case "straight-shuffle":
+                timeSignature = "4/4";
+                notesArray = [
+                    { keys: ["c/4"], duration: "8" },
+                    { keys: ["d/4"], duration: "16" },
+                    { keys: ["d/4"], duration: "16" },
+                    { keys: ["e/4"], duration: "8" },
+                    { keys: ["f/4"], duration: "16" },
+                    { keys: ["f/4"], duration: "16" },
+                    { keys: ["g/4"], duration: "8" },
+                    { keys: ["a/4"], duration: "16" },
+                    { keys: ["a/4"], duration: "16" },
+                    { keys: ["b/4"], duration: "8" },
+                    { keys: ["c/5"], duration: "16" },
+                    { keys: ["c/5"], duration: "16" }
+                ];
+                explanationsArray = [
+                    "Straight Shuffle: Each beat is split into an eighth note followed by two sixteenth notes."
+                ];
+                notes = notesArray.map(note => new VF.StaveNote({
+                    keys: note.keys,
+                    duration: note.duration
+                }));
+                beams = [
+                    new VF.Beam(notes.slice(0, 3)),
+                    new VF.Beam(notes.slice(3, 6)),
+                    new VF.Beam(notes.slice(6, 9)),
+                    new VF.Beam(notes.slice(9, 12))
+                ];
         default:
             break;
     }
@@ -584,68 +654,97 @@ function loadExample(example) {
         duration: note.duration
     }));
 
-    if (example === "eighth-notes") {
-        beams = [
-            new VF.Beam(notes.slice(0, 2)),
-            new VF.Beam(notes.slice(2, 4)),
-            new VF.Beam(notes.slice(4, 6)),
-            new VF.Beam(notes.slice(6, 8))
-        ];
-    } else if (example === "sixteenth-notes") {
-        beams = [
-            new VF.Beam(notes.slice(0, 4)),
-            new VF.Beam(notes.slice(4, 8)),
-            new VF.Beam(notes.slice(8, 12)),
-            new VF.Beam(notes.slice(12, 16))
-        ];
-    } else if (example === "triplets") {
-        const tripletGroup1 = notes.slice(0, 3);
-        const tripletGroup2 = notes.slice(3, 6);
-        const tripletGroup3 = notes.slice(6, 9);
-        const tripletGroup4 = notes.slice(9, 12);
-        beams = [new VF.Beam(tripletGroup1), new VF.Beam(tripletGroup2), new VF.Beam(tripletGroup3), new VF.Beam(tripletGroup4)];
-        tuplets = [new VF.Tuplet(tripletGroup1), new VF.Tuplet(tripletGroup2), new VF.Tuplet(tripletGroup3), new VF.Tuplet(tripletGroup4)];
-    } else if (example === "dotted-notes") {
-        notes[0].addDotToAll();
-        notes[2].addDotToAll();
-    } else if (example === "sixteenth-note-pairs") {
-        beams = [
-            new VF.Beam(notes.slice(0, 3)),
-            new VF.Beam(notes.slice(3, 6)),
-            new VF.Beam(notes.slice(6, 9)),
-            new VF.Beam(notes.slice(9, 12))
-        ];
-    } else if (example === "eighth-sixteenth-pairs") {
-        beams = [
-            new VF.Beam(notes.slice(0, 3)),
-            new VF.Beam(notes.slice(3, 6)),
-            new VF.Beam(notes.slice(6, 9)),
-            new VF.Beam(notes.slice(9, 12))
-        ];
-    } else if (example === "dotted-sixteenth") {
-        beams = [
-            new VF.Beam(notes.slice(0, 2)),
-            new VF.Beam(notes.slice(2, 4)),
-            new VF.Beam(notes.slice(4, 6)),
-            new VF.Beam(notes.slice(6, 8))
-        ];
-     }else if (example === "sixteenth-dotted-pairs") {
-        notes[1].addDotToAll();
-        notes[3].addDotToAll();
-        notes[5].addDotToAll();
-        notes[7].addDotToAll();
-        beams = [
-            new VF.Beam(notes.slice(0, 2)),
-            new VF.Beam(notes.slice(2, 4)),
-            new VF.Beam(notes.slice(4, 6)),
-            new VF.Beam(notes.slice(6, 8))
-        ];
-    } else if (example === "sixteenth-eighth-sixteenth-triplet") {
-        const tripletGroup1 = notes.slice(0, 3);
-        const tripletGroup2 = notes.slice(3, 6);
-        const tripletGroup3 = notes.slice(6, 9);
-        const tripletGroup4 = notes.slice(9, 12);
-        beams = [new VF.Beam(tripletGroup1), new VF.Beam(tripletGroup2), new VF.Beam(tripletGroup3), new VF.Beam(tripletGroup4)];
+    switch (example) {
+        case "eighth-notes":
+            beams = [
+                new VF.Beam(notes.slice(0, 2)),
+                new VF.Beam(notes.slice(2, 4)),
+                new VF.Beam(notes.slice(4, 6)),
+                new VF.Beam(notes.slice(6, 8))
+            ];
+            break;
+        case "sixteenth-notes":
+            beams = [
+                new VF.Beam(notes.slice(0, 4)),
+                new VF.Beam(notes.slice(4, 8)),
+                new VF.Beam(notes.slice(8, 12)),
+                new VF.Beam(notes.slice(12, 16))
+            ];
+            break;
+        case "triplets":
+            const tripletGroup1 = notes.slice(0, 3);
+            const tripletGroup2 = notes.slice(3, 6);
+            const tripletGroup3 = notes.slice(6, 9);
+            const tripletGroup4 = notes.slice(9, 12);
+            beams = [new VF.Beam(tripletGroup1), new VF.Beam(tripletGroup2), new VF.Beam(tripletGroup3), new VF.Beam(tripletGroup4)];
+            tuplets = [new VF.Tuplet(tripletGroup1), new VF.Tuplet(tripletGroup2), new VF.Tuplet(tripletGroup3), new VF.Tuplet(tripletGroup4)];
+            break;
+        case "dotted-notes":
+            notes[0].addDotToAll();
+            notes[2].addDotToAll();
+            break;
+        case "sixteenth-note-pairs":
+            beams = [
+                new VF.Beam(notes.slice(0, 3)),
+                new VF.Beam(notes.slice(3, 6)),
+                new VF.Beam(notes.slice(6, 9)),
+                new VF.Beam(notes.slice(9, 12))
+            ];
+            break;
+        case "eighth-sixteenth-pairs":
+            beams = [
+                new VF.Beam(notes.slice(0, 3)),
+                new VF.Beam(notes.slice(3, 6)),
+                new VF.Beam(notes.slice(6, 9)),
+                new VF.Beam(notes.slice(9, 12))
+            ];
+            break;
+        case "dotted-sixteenth":
+            beams = [
+                new VF.Beam(notes.slice(0, 2)),
+                new VF.Beam(notes.slice(2, 4)),
+                new VF.Beam(notes.slice(4, 6)),
+                new VF.Beam(notes.slice(6, 8))
+            ];
+            break;
+        case "sixteenth-dotted-pairs":
+            notes[1].addDotToAll();
+            notes[3].addDotToAll();
+            notes[5].addDotToAll();
+            notes[7].addDotToAll();
+            beams = [
+                new VF.Beam(notes.slice(0, 2)),
+                new VF.Beam(notes.slice(2, 4)),
+                new VF.Beam(notes.slice(4, 6)),
+                new VF.Beam(notes.slice(6, 8))
+            ];
+            break;
+        case "sixteenth-eighth-sixteenth-triplet":
+            const tripletGroupA = notes.slice(0, 3);
+            const tripletGroupB = notes.slice(3, 6);
+            const tripletGroupC = notes.slice(6, 9);
+            const tripletGroupD = notes.slice(9, 12);
+            beams = [new VF.Beam(tripletGroupA), new VF.Beam(tripletGroupB), new VF.Beam(tripletGroupC), new VF.Beam(tripletGroupD)];
+            tuplets = [new VF.Tuplet(tripletGroupA), new VF.Tuplet(tripletGroupB), new VF.Tuplet(tripletGroupC), new VF.Tuplet(tripletGroupD)];
+            break;
+        case "blues-shuffle":
+            beams = [
+                new VF.Beam(notes.slice(0, 2)),
+                new VF.Beam(notes.slice(2, 4)),
+                new VF.Beam(notes.slice(4, 6)),
+                new VF.Beam(notes.slice(6, 8))
+            ];
+            break;
+        case "straight-shuffle":
+            beams = [
+                new VF.Beam(notes.slice(0, 3)),
+                new VF.Beam(notes.slice(3, 6)),
+                new VF.Beam(notes.slice(6, 9)),
+                new VF.Beam(notes.slice(9, 12))
+            ];
+            break;
+        default:
+            break;
     }
 
     currentStep = 0;

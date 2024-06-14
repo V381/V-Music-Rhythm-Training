@@ -118,6 +118,16 @@ button {
     text-align: center;
 }
 
+.rhythms {
+    color: red;
+    text-align: center;
+}
+
+.rhythms:hover {
+    cursor: pointer;
+    color: white;
+}
+
 .basics:hover {
     cursor: pointer;
     color: white;
@@ -127,9 +137,23 @@ button {
     display: none;
 }
 
+.hidden-r {
+    display: none;
+}
+
+
 .arrow {
     display: inline-block;
     transition: transform 0.3s ease;
+}
+
+.arrow-r {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.arrow-r.down {
+    transform: rotate(90deg);
 }
 
 .arrow.down {
