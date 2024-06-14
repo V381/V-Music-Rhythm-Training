@@ -43,13 +43,56 @@ lessonList.addEventListener("click", (event) => {
         event.target.classList.add('active');
         
         items.forEach(item => item.classList.add('disabled'));
+        (() => {
+            const items = document.querySelectorAll('#rhythms-list li');
+            console.log('Started playing example:', example);
+    
+            items.forEach(item => item.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Disable all list items
+            items.forEach(item => item.classList.add('disabled'));
+        })();
     }
 });
+
+const rhythmsList = document.getElementById("rhythms-list");
+rhythmsList.addEventListener("click", (event) => {
+    const example = event.target.getAttribute("data-example");
+    if (example && !event.target.classList.contains('disabled')) {
+        console.log('Example clicked:', example);
+        loadExample(example);
+        console.log('Example loaded:', example);
+        stopPlaying();
+        console.log('Stopped any previous playback');
+        playExample();
+        const items = document.querySelectorAll('#rhythms-list li');
+        console.log('Started playing example:', example);
+
+        items.forEach(item => item.classList.remove('active'));
+        event.target.classList.add('active');
+        
+        // Disable all list items
+        items.forEach(item => item.classList.add('disabled'));
+        (() => {
+            const items = document.querySelectorAll('#lesson-list li');
+            console.log('Started playing example:', example);
+    
+            items.forEach(item => item.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            items.forEach(item => item.classList.add('disabled'));
+        })();
+    }
+});
+
 
 function enableListItems() {
     console.log('Enabling list items');
     const items = document.querySelectorAll('#lesson-list li');
+    const rhythmItems = document.querySelectorAll("#rhythms-list > li");
     items.forEach(item => item.classList.remove('disabled'));
+    rhythmItems.forEach(item  => item.classList.remove('disabled'));
 }
 
 function updateExplanation() {
@@ -170,3 +213,13 @@ document.querySelector('h2.basics').addEventListener('click', function() {
     const arrow = this.querySelector('.arrow');
     arrow.classList.toggle('down');
 });
+
+
+document.querySelector('h2.rhythms').addEventListener('click', function() {
+    const lessonList = document.getElementById('rhythms-list');
+    lessonList.classList.toggle('hidden-r');
+    
+    const arrow = this.querySelector('.arrow-r');
+    arrow.classList.toggle('down');
+});
+
