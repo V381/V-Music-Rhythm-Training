@@ -6,49 +6,50 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="sidebar">
-        <h2 class="headline"><span>V</span> Music Rhythm Training</h2>
-        <button id="close-btn">&times;</button>
-        <h2 class="basics">Basics <span class="arrow">&#9654;</span></h2>
-        <ul id="lesson-list"  class="hidden">
-            <li data-example="whole-note">Whole Note</li>
-            <li data-example="half-note">Half Note</li>
-            <li data-example="quarter-note">Quarter Note</li>
-            <li data-example="eighth-note">Eighth Note</li>
-            <li data-example="basic">4/4 - Basic explanation</li>
-            <li data-example="pauses">4/4 - With pauses</li>
-            <li data-example="eighth-notes">4/4 - With eighth notes</li>
-            <li data-example="sixteenth-notes">4/4 - With sixteenth notes</li>
-            <li data-example="triplets">4/4 - With triplets</li>
-            <li data-example="dotted-notes">4/4 - With dotted notes</li>
-            <li data-example="sixteenth-note-pairs">4/4 - With sixteenth note pairs</li>
-            <li data-example="eighth-sixteenth-pairs">4/4 - Eighth and Sixteenth Note Pairs</li>
-            <li data-example="dotted-sixteenth">4/4 - Dotted Eighth and Sixteenth Notes</li>
-            <li data-example="sixteenth-dotted-pairs">4/4 - Sixteenth Followed by Dotted Pairs</li>
-            <li data-example="sixteenth-eighth-sixteenth-triplet">4/4 - Sixteenth, Eighth, and Sixteenth Note Triplet</li>
-            <li data-example="three-four">3/4 - Three Quarter Time</li>
-            <li data-example="three-two">3/2 - Three Half Time</li>
-            <li data-example="three-eight">3/8 - Three Eighth Time</li>
-            <li data-example="three-sixteenth">3/16 - Three Sixteenth Time</li>
-            <li data-example="two-four">2/4 - Two Quarter Time</li>
-            <li data-example="seven-eight">7/8 - Seven Eighth Time</li>
-            <li data-example="seven-sixteenth">7/16 - Seven Sixteenth Time</li>
-            <li data-example="eleven-sixteenth">11/16 - Eleven Sixteenth Time</li>
-            <li data-example="eleven-eight">11/8 - Eleven Eighth Time</li>
-        </ul>
-             
-        <h2 class="basics">Rhythms</h2>
-    </div>
-    <button id="open-btn">&#9776;</button>
-    <div id="content">
-        <div id="notation"></div>
-        <div id="explanation"></div>
-        <div id="detailed-explanation"></div>
-        <button id="next">Next</button>
-        <button id="play">Play</button>
-        <button id="stop">Stop</button>
-        <button id="triplet">Triplet Feel</button>
-        <canvas id="equalizer-canvas" width="200" height="50"></canvas>
+    <div id="container">
+        <div id="sidebar">
+            <h2 class="headline"><span>V</span> Music Rhythm Training</h2>
+            <button id="close-btn">&times;</button>
+            <h2 class="basics">Basics <span class="arrow">&#9654;</span></h2>
+            <ul id="lesson-list" class="hidden">
+                <li data-example="whole-note">Whole Note</li>
+                <li data-example="half-note">Half Note</li>
+                <li data-example="quarter-note">Quarter Note</li>
+                <li data-example="eighth-note">Eighth Note</li>
+                <li data-example="basic">4/4 - Basic explanation</li>
+                <li data-example="pauses">4/4 - With pauses</li>
+                <li data-example="eighth-notes">4/4 - With eighth notes</li>
+                <li data-example="sixteenth-notes">4/4 - With sixteenth notes</li>
+                <li data-example="triplets">4/4 - With triplets</li>
+                <li data-example="dotted-notes">4/4 - With dotted notes</li>
+                <li data-example="sixteenth-note-pairs">4/4 - With sixteenth note pairs</li>
+                <li data-example="eighth-sixteenth-pairs">4/4 - Eighth and Sixteenth Note Pairs</li>
+                <li data-example="dotted-sixteenth">4/4 - Dotted Eighth and Sixteenth Notes</li>
+                <li data-example="sixteenth-dotted-pairs">4/4 - Sixteenth Followed by Dotted Pairs</li>
+                <li data-example="sixteenth-eighth-sixteenth-triplet">4/4 - Sixteenth, Eighth, and Sixteenth Note Triplet</li>
+                <li data-example="three-four">3/4 - Three Quarter Time</li>
+                <li data-example="three-two">3/2 - Three Half Time</li>
+                <li data-example="three-eight">3/8 - Three Eighth Time</li>
+                <li data-example="three-sixteenth">3/16 - Three Sixteenth Time</li>
+                <li data-example="two-four">2/4 - Two Quarter Time</li>
+                <li data-example="seven-eight">7/8 - Seven Eighth Time</li>
+                <li data-example="seven-sixteenth">7/16 - Seven Sixteenth Time</li>
+                <li data-example="eleven-sixteenth">11/16 - Eleven Sixteenth Time</li>
+                <li data-example="eleven-eight">11/8 - Eleven Eighth Time</li>
+            </ul>
+            <h2 class="basics">Rhythms</h2>
+        </div>
+        <button id="open-btn">&#9776;</button>
+        <div id="content">
+            <div id="notation"></div>
+            <div id="explanation"></div>
+            <div id="detailed-explanation"></div>
+            <button id="next">Next</button>
+            <button id="play">Play</button>
+            <button id="stop">Stop</button>
+            <button id="triplet">Triplet Feel</button>
+            <canvas id="equalizer-canvas" width="200" height="50"></canvas>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vexflow/3.0.9/vexflow-min.js"></script>
