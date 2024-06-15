@@ -90,6 +90,10 @@ button {
     margin-top: 10px;
 }
 
+#explanation {
+    font-size: 20px;
+}
+
 #play, #stop, #next, #triplet {
     display: none;
 }
